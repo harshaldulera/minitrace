@@ -32,9 +32,10 @@ def trace_process(pid):
         
 def start_and_trace(command):
     debugger = PtraceDebugger()
-    process = debugger.createProcess(command[0], command, os.environ)
+    pid = debugger.createChild(command[0], command, os.environ)
     
     try:
+        process = debugger.addProcess(pid, False)
         print(f"Tracing new process: {command}")
         while True:
             # wait for the next syscall
