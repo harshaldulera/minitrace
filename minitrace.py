@@ -1,11 +1,11 @@
 import os
 import sys
-from ptrace.debugger import PTraceDebugger
+from ptrace.debugger import PtraceDebugger
 import time
 from ptrace.syscall import SYSCALL_NAMES
 
 def trace_process(pid):
-    debugger = PTraceDebugger()
+    debugger = PtraceDebugger()
     process = debugger.addProcess(pid, False)
     
     try:
@@ -31,7 +31,7 @@ def trace_process(pid):
         debugger.quit()
         
 def start_and_trace(command):
-    debugger = PTraceDebugger()
+    debugger = PtraceDebugger()
     process = debugger.createProcess(command[0], command, os.environ)
     
     try:
