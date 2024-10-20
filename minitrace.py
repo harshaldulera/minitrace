@@ -32,7 +32,7 @@ def trace_process(pid):
         
 def start_and_trace(command):
     debugger = PTraceDebugger()
-    process = debugger.createProcess(command[0], command, os.environ)]
+    process = debugger.createProcess(command[0], command, os.environ)
     
     try:
         print(f"Tracing new process: {command}")
